@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<br><br>
+<div class='container mt-5'>
+	<div class='col-10 mx-auto border border-success p-2 border-round'>
+
+<h1 class='alert alert-info mx-auto text-center'>Holiday List</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sr No.</th>
+      <th scope="col">Date</th>
+      
+      <th scope="col">Occasion</th>
+      <th scope="col">Day</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in x %}
+    <tr>
+      <td>{{forloop.counter}}.</td>
+      <td>{{i.Date}}</td>
+      <td>{{i.Occasion}}</td>
+      {% if i.Day == 'Sunday' %}
+       <td><small class='badge bg-success'>{{i.Day}}</small></td>
+       {% else %}
+        <td><small>{{i.Day}}</small></td>
+        {% endif %}
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+
+
+
+			{% endblock %}

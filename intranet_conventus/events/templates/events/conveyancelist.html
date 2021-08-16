@@ -1,0 +1,55 @@
+{% extends 'core/base.html'%} {% block content %}
+<br><br>
+<div class='container'>
+<h1 class='alert alert-info mx-auto text-center'>My Conveyance List</h1>
+<table class='table'>
+    <thead>
+    <tr>
+        <th>Sr No.</th>
+        <th>Created Date</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Date</th> 
+        
+        <th>Amount</th>
+        <th>Medium</th>
+        <th>Image</th>
+        <th>Admin Remarks</th>
+        <th>Status</th>
+        <th>Action</th>
+        
+    </tr>
+</thead>
+
+    {% for i in x %}
+    <tbody>
+    <tr>
+        <td><center>{{forloop.counter}}</center></td>
+        <td>{{i.Date}}</td>
+        <td><center>{{i.From_Location}}</center></td>
+        <td><center>{{i.To_Location}}</center></td>
+        <td><center>{{i.Conveyance_Date}}</center></td>
+       
+        <td><center>{{i.Amount}}</center></td>
+        <td><center>{{i.Remark}}</center></td>
+        <td><center>{{i.image}}</center></td>
+        <td>{{i.RemarkAdmin}}</td>
+        {% if i.Status %}
+        <td><center><small class='badge bg-success'>Paid</small></center></td>
+        {% else %}
+        <td><center><small class='badge bg-danger'>UnPaid</small></center></td>
+        {% endif %}
+   
+     {% if i.Status %}
+        <td>  </td>
+        {% else %}
+        <td><small><a href='/Conveyanceupdateviewuser/{{i.id}}/'>Edit</a></small></td>
+        {% endif %}
+       
+    </tr>
+    </tbody>
+    {%endfor%}
+
+</table>
+</div>
+{% endblock%}

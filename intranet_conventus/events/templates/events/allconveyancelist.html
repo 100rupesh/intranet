@@ -1,0 +1,55 @@
+{% extends 'core/base.html'%} {% block content %}
+<br><br>
+
+<h1 class='alert alert-info mx-auto text-center'>My Conveyance List</h1>
+<table class='table'>
+    <thead>
+    <tr>
+        <th>Sr No.</th>
+        <th>Created Date</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Date</th> 
+        <th>User</th>
+        <th>Amount</th>
+        <th>Medium</th>
+        <th>Image</th>
+        <th>Admin Remarks</th>
+        <th>Status</th>
+        <th>Action</th>
+        
+    </tr>
+</thead>
+
+    {% for i in x %}
+    <tbody>
+    <tr>
+        <td><center>{{forloop.counter}}</center></td>
+        <td>{{i.Date}}</td>
+        <td><center>{{i.From_Location}}</center></td>
+        <td><center>{{i.To_Location}}</center></td>
+        <td><center>{{i.Conveyance_Date}}</center></td>
+        <td><a href='/update-conveyance/{{i.id}}/'>{{i.user|title}}</a></td>
+        <td><center>{{i.Amount}}</center></td>
+        <td><center>{{i.Remark}}</center></td>
+          <td><center>{{i.image}}</center></td>
+        <td>{{i.RemarkAdmin}}</td>
+        
+        {% if i.Status %}
+        <td><center><small class='badge bg-success'>Paid</small></center></td>
+        {% else %}
+        <td><center><small class='badge bg-danger'>UnPaid</small></center></td>
+        {% endif %}
+         {% if i.Status %}
+        <td><center>-</center></td>
+        {% else %}
+        <td><center><a href='/delete/{{i.id}}/'>Delete</a></center></td>
+        {% endif %}
+    
+    </tr>
+    </tbody>
+    {%endfor%}
+
+</table>
+
+{% endblock%}

@@ -1,0 +1,36 @@
+{% load static %}
+<div class='border-right border-danger h-100'>
+				<div class='text-center'>
+					<img src="{% static 'core/images/rutu.jpeg' %}" class='img-fluid rounded-circle mt-5' width='100px' height='100px'>
+				</div>
+				<h3 class='ft text-light mt-3 text-center'>CONVENTUS TECHNOLOGIES</h3>
+				<hr class='bg-light'>
+			<nav class='nav flex-column text-center nav-fill w-100 navbar-fixed-top'>
+				{% if user.is_authenticated %}
+				<a href='/' class='nav-link text-light'>Company Events</a>
+				<a href='/conveyance/' class='nav-link text-light'>Conveyance Form</a>
+				<a href='/conveyancelist/' class='nav-link text-light'>My Conveyance List</a>
+				
+				<a href='/holiday/' class='nav-link text-light'>Holiday List</a>
+				<a href='/users/changepassword/' class='nav-link text-light'>Change My Password</a>
+				
+					
+					<a href='/users/logout/' class='nav-link text-light'>Logout</a>
+					{% else %}
+					<a href='/users/login/' class='nav-link text-light'>Login</a>
+
+				
+				{% endif %}
+				{% if user.is_authenticated and user.username == 'admin' %}
+				<a href='/users/signup/' class='nav-link text-light'>Create New User</a>
+				<a href='/allconveyancelist/' class='nav-link text-light'>Conveyance Status</a>
+				<a href='/allconveyancelist/' class='nav-link text-light'>Add Notice</a>
+				<a href='/allconveyancelist/' class='nav-link text-light'>New Post</a>
+				<a href='/holidayform/' class='nav-link text-light'>Add Holiday</a>
+				<a href='/editholiday/' class='nav-link text-light'>View Holiday</a>
+				
+
+				{% endif %}
+				<br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</nav>
+		</div>

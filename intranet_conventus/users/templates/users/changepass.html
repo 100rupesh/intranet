@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<br><br>
+
+<div class='container'>
+    <div class='col-5 mt-4 mx-auto mb-4 border border-info p-4'>
+        <div class='alert alert-primary text-center text-uppercase'>Change  Password</div>
+        <table>
+            <form method='POST'>
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                {% for  error in form.non_field_errors %}
+                <p>{{error}}</p>
+                {% endfor %}
+                {% endif %}
+                {% for fm in form %}
+                {{fm.label_tag}}{{fm}}{{fm.errors|striptags}}<br><br>
+                {% endfor %}
+            </table>
+        <button type='submit' class='btn btn-primary btn-sm col-5 mx-auto mt-4'> Change Password</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

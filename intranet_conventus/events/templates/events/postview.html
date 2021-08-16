@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+
+
+    {% for i in x %}
+    <h1>{{i.Author}}</h1>
+    
+	<h3>{{i.Date}}</h3>
+    
+	<h2>
+	{{i.Topic}}</h2>
+	<p>
+
+        {{i.Info}}
+    </br>
+ 
+        <hr/>
+
+</p>
+
+
+{% endfor %}
+
+{% endblock %}
