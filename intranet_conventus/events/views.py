@@ -1,4 +1,5 @@
 #this is a views file
+#new view file
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
